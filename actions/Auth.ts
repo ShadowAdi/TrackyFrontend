@@ -22,6 +22,7 @@ interface LoginProps {
 
 export const LoginAccount = async (User: LoginProps) => {
   try {
+    console.log(User)
     const res = await axios.post("https://trackybackend.vercel.app/api/login/", User);
     localStorage.setItem("token", res.data.token);
     console.log(res.data.token)
