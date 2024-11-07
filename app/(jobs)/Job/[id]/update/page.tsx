@@ -4,11 +4,9 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import UpdateJobForm from "@/components/shared/UpdateJobForm";
-import { toast } from "react-toastify";
 
 const UpdateJob = () => {
   const { id } = useParams();
-  const notify = () => toast("Wow so easy!");
 
   const [job, setJob] = useState<JobInterface | null>(null);
 
@@ -28,7 +26,7 @@ const UpdateJob = () => {
       await fetchJob();
     };
     fetchData(); // Call the async function
-  }, [id]);
+  }, [id,fetchJob]);
 
   return (
     <div className="text-black flex flex-col items-center mt-4 justify-center">
