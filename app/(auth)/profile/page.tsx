@@ -24,7 +24,7 @@ const Profile = () => {
     return null;
   }
   return (
-    <div className="flex h-[90vh] mt-6    flex-col gap-3 text-black items-center sm:w-3/4 w-full mx-auto justify-start py-20 px-3">
+    <div className="flex h-[90vh] mt-6  py-4  flex-col gap-3 text-black items-center sm:w-3/4 w-full mx-auto justify-start py-20 px-3">
       <div className="sm:w-[200px] sm:h-[200px] w-[100px] h-[100px] rounded-full relative">
         <Image
           src={user?.photo ? user?.photo : "/Avatar.png"}
