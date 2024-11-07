@@ -24,7 +24,8 @@ export const LoginAccount = async (User: LoginProps) => {
   try {
     const res = await axios.post("https://trackybackend.vercel.app/api/login/", User);
     localStorage.setItem("token", res.data.token);
-    window.location.href="/";
+    console.log(res.data.token)
+    window.location.href="https://tracky-frontend.vercel.app/";
   } catch (error) {
     console.error("Error Logout account:", error);
   }
@@ -60,7 +61,6 @@ export const UpdateAccount = async (
   setUser: (user: UserProps | null) => void
 ) => {
   try {
-    console.log(User);
     const token = localStorage.getItem("token");
     if (token && User.id) {
       await axios
