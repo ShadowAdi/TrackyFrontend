@@ -25,7 +25,7 @@ export const LoginAccount = async (User: LoginProps) => {
     console.log(User)
     const res = await axios.post("https://trackybackend.vercel.app/api/login/", User);
     localStorage.setItem("token", res.data.token);
-    console.log(res.data.token)
+    console.log(res.data)
     window.location.href="https://tracky-frontend.vercel.app/";
   } catch (error) {
     console.error("Error Logout account:", error);
