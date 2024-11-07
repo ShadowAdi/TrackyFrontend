@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/token/", {
+          const response = await axios.get("https://trackybackend.vercel.app/api/token/", {
             headers: {
               Authorization: `Token ${token}`,
             },

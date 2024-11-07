@@ -21,7 +21,7 @@ export const GetAllJobs = async (
 ): Promise<JobInterface[] | undefined> => {
   if (!loading && user) {
     const res = await axios.get(
-      `http://127.0.0.1:8000/jobs/All/?user_id=${user.id}`
+      `https://trackybackend.vercel.app/jobs/All/?user_id=${user.id}`
     );
     return res.data as JobInterface[];
   }
@@ -31,7 +31,7 @@ export const GetAllJobs = async (
 // Fetches a single job by ID and returns a JobInterface
 export const GetJob = async (id: number): Promise<JobInterface | null> => {
   try {
-    const res = await axios.get(`http://127.0.0.1:8000/jobs/Single/${id}/`);
+    const res = await axios.get(`https://trackybackend.vercel.app/jobs/Single/${id}/`);
     return res.data as JobInterface;
   } catch (error) {
     console.log(error);
@@ -44,7 +44,7 @@ export const CreateNewJob = async (user: UserProps, data: JobInterface) => {
   if (user && token) {
     try {
       data["posted_by"] = user?.id;
-       await axios.post(`http://127.0.0.1:8000/jobs/Create/`, data, {
+       await axios.post(`https://trackybackend.vercel.app/jobs/Create/`, data, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -66,7 +66,7 @@ export const UpdateJob = async (
     const token = localStorage.getItem("token");
     if (token) {
       const res = await axios.put(
-        `http://127.0.0.1:8000/jobs/UpdateDelete/${id}/`,
+        `https://trackybackend.vercel.app/jobs/UpdateDelete/${id}/`,
         data,
         {
           headers: {
@@ -90,7 +90,7 @@ export const DeleteJob = async (id: number) => {
     const token = localStorage.getItem("token");
     if (token) {
       const res = await axios.delete(
-        `http://127.0.0.1:8000/jobs/UpdateDelete/${id}/`,
+        `https://trackybackend.vercel.app/jobs/UpdateDelete/${id}/`,
         {
           headers: {
             Authorization: `Token ${token}`,

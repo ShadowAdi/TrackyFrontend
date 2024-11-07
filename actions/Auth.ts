@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const RegisterAccount = async (User: UserProps) => {
   try {
-    const res = await axios.post("http://127.0.0.1:8000/api/register/", User);
+    const res = await axios.post("https://trackybackend.vercel.app/api/register/", User);
 
     if (res.status === 200) {
       window.location.href = "/login";
@@ -22,7 +22,7 @@ interface LoginProps {
 
 export const LoginAccount = async (User: LoginProps) => {
   try {
-    const res = await axios.post("http://127.0.0.1:8000/api/login/", User);
+    const res = await axios.post("https://trackybackend.vercel.app/api/login/", User);
     localStorage.setItem("token", res.data.token);
     window.location.href="/";
   } catch (error) {
@@ -36,7 +36,7 @@ export const LogoutAccount = async () => {
     console.log(token)
     if (token) {
       await axios
-        .post("http://127.0.0.1:8000/api/logout/", null, {
+        .post("https://trackybackend.vercel.app/api/logout/", null, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -64,7 +64,7 @@ export const UpdateAccount = async (
     const token = localStorage.getItem("token");
     if (token && User.id) {
       await axios
-        .put(`http://127.0.0.1:8000/api/Update/${User?.id}/`, User, {
+        .put(`https://trackybackend.vercel.app/api/Update/${User?.id}/`, User, {
           headers: {
             Authorization: `Token ${token}`,
           },
