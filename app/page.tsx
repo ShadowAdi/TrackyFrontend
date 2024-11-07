@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowCircleRight, FaSpinner } from "react-icons/fa";
 export default function Home() {
-  const { user, loading }: { user: UserProps | null; loading: Boolean } =
+  const { user, loading }: { user: UserProps | null; loading: boolean } =
     useAuth();
   return (
     <main className="flex px-4 sm:flex-row flex-col sm:gap-4 gap-10  py-8 justify-between   h-1/2 my-6 mt-20 items-center  w-[96%] mx-auto">

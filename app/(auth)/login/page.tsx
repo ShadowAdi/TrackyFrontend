@@ -99,7 +99,7 @@ const Login = () => {
             <span className="text-xl font-bold ">Submit</span>
           </Button>
           <span className="text-black  mx-auto block my-3 text-lg">
-            Don't Have An Account?{" "}
+            Don{"'"}t Have An Account?{" "}
             <Link href={"/register"} className=" text-[#3087d8] underline">
               Register
             </Link>

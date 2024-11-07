@@ -23,7 +23,7 @@ export interface UserProps {
 interface AuthContextProps {
   user: UserProps | null;
   setUser: (user: UserProps | null) => void;
-  loading: Boolean;
+  loading: boolean;
 }
 // Create the AuthContext
 const AuthContext = createContext<AuthContextProps>({

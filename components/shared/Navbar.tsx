@@ -10,7 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Notofy from "./Notofy";
 
 const Navbar = () => {
-  const { user, loading }: { user: UserProps | null; loading: Boolean } =
+  const { user, loading }: { user: UserProps | null; loading: boolean } =
     useAuth();
   return (
     <nav
