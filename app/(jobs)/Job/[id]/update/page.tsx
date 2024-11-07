@@ -10,23 +10,17 @@ const UpdateJob = () => {
 
   const [job, setJob] = useState<JobInterface | null>(null);
 
-  // Fetch a single job by ID
-  const fetchJob = async () => {
-    try {
-      const data = await GetJob(Number(id));
-      setJob(data);
-     
-    } catch (error) {
-      console.error("Error fetching job:", error);
-    }
-  };
-
   useEffect(() => {
     const fetchData = async () => {
-      await fetchJob();
+      try {
+        const data = await GetJob(Number(id));
+        setJob(data);
+      } catch (error) {
+        console.error("Error fetching job:", error);
+      }
     };
-    fetchData(); // Call the async function
-  }, [id,fetchJob]);
+    fetchData();
+  }, [id]); // Only add `id` as a dependency
 
   return (
     <div className="text-black flex flex-col items-center mt-4 justify-center">
